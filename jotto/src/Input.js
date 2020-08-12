@@ -1,20 +1,8 @@
 import React from "react";
-import { shallow } from "enzyme";
-import Input from "./Input";
+import { connect } from "react-redux";
 
-describe("render", () => {
-  describe("word has not been guessed", () => {
-    it("renders component without error", () => {});
-    it("renders input box", () => {});
-    it("renders submit button", () => {});
-  });
-  describe("word has been guessed", () => {
-    it("renders component without error", () => {});
-    it("does not renders input box", () => {});
-    it("does not renders submit button", () => {});
-  });
-});
+const Input = () => {
+  return <div></div>;
+};
 
-describe("update state", () => {});
-
-// 9 from part 5 finished
+export default connect((state) => state, {})(Input);
