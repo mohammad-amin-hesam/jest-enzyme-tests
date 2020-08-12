@@ -5,11 +5,12 @@ import { storeFactory } from "../test/testUtils";
 
 const setup = (initialState = {}) => {
   const store = storeFactory(initialState);
-  const wrapper = shallow(<Input store={store} />);
-  console.log(wrapper.debug());
+  // .dive gets our child component from our higher order component
+  const wrapper = shallow(<Input store={store} />)
+    .dive()
+    .dive();
+  return wrapper;
 };
-
-setup();
 
 describe("render", () => {
   describe("word has not been guessed", () => {
