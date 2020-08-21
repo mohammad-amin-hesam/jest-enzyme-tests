@@ -1,5 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
+import { guessWord } from "./actions";
 
 const Input = (props) => {
   const { success } = props;
@@ -14,4 +15,4 @@ const Input = (props) => {
   return <div data-test="component-input">{contents}</div>;
 };
 
-export default connect((state) => state, {})(Input);
+export default connect((state) => state, { guessWord })(Input);
