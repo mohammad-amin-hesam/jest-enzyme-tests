@@ -1,6 +1,8 @@
 import React from "react";
+import { connect } from "react-redux";
 import Congrats from "./Congrats";
 import GuessedWords from "./GuessedWords";
+import { getSecretWord } from "./actions";
 
 function App() {
   return (
@@ -13,7 +15,7 @@ function App() {
       }}
     >
       <h1>Jotto App</h1>
-      <Congrats success={false} />
+      <Congrats success={true} />
       <GuessedWords
         guessedWords={[
           {
@@ -26,4 +28,9 @@ function App() {
   );
 }
 
-export default App;
+const mstp = (state) => {
+  const { success, guessedWords, secretWord } = state;
+  return { success, guessedWords, secretWord };
+};
+
+export default connect(mstp, { getSecretWord })(App);

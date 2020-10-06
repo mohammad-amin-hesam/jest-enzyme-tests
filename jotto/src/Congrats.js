@@ -20,5 +20,3 @@ Congrats.propTypes = {
 };
 
 export default Congrats;
-
-// part 3 finished start part 4
