@@ -8,9 +8,8 @@ const setup = (initialState = {}) => {
   const store = storeFactory(initialState);
   // .dive gets our child component from our higher order component
 
-  const wrapper = shallow(<App store={store} />)
-    .dive()
-    .dive();
+  const wrapper = shallow(<App store={store} />).dive();
+
   return wrapper;
 };
 
@@ -30,7 +29,6 @@ describe("redux properties", () => {
   test("has access to `guessedWords` state", () => {
     const guessedWords = [{ guessedWord: "train", letterMatchCount: 3 }];
     const wrapper = setup({ guessedWords });
-    console.log(wrapper.props());
     const guessedWordsProp = wrapper.props().guessedWords;
     expect(guessedWordsProp).toEqual(guessedWords);
   });
