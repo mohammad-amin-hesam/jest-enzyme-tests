@@ -1,10 +1,14 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import Congrats from "./Congrats";
 import GuessedWords from "./GuessedWords";
 import { getSecretWord } from "./actions";
 
-function App() {
+export function UnconnectedApp(props) {
+  useEffect(() => {
+    props.getSecretWord();
+  }, []);
+
   return (
     <div
       style={{
@@ -14,7 +18,7 @@ function App() {
         alignItems: "center",
       }}
     >
-      <h1>Jotto App</h1>
+      <h1>Jotto UnconnectedApp</h1>
       <Congrats success={true} />
       <GuessedWords
         guessedWords={[
@@ -33,4 +37,4 @@ const mstp = (state) => {
   return { success, guessedWords, secretWord };
 };
 
-export default connect(mstp, { getSecretWord })(App);
+export default connect(mstp, { getSecretWord })(UnconnectedApp);
